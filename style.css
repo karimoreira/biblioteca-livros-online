@@ -1,0 +1,142 @@
+/* estilo.css */
+
+body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+header {
+    background: #4a4a4a;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+    border-bottom: 4px solid #333;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    margin: 0;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+main {
+    padding: 2rem 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+section#livros {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 2rem;
+    color: #333;
+    border-bottom: 2px solid #4a4a4a;
+    padding-bottom: 0.5rem;
+}
+
+.search-bar {
+    margin-bottom: 1.5rem;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+ul#lista-livros {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul#lista-livros li {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+ul#lista-livros li:hover {
+    background: #e0e0e0;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.pagination {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.pagination button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 0 0.5rem;
+}
+
+.pagination button:disabled {
+    background: #d0d0d0;
+    cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+    background: #0056b3;
+}
+
+.pagination #page-info {
+    font-size: 1rem;
+    margin: 0 1rem;
+}
+
+footer {
+    background: #4a4a4a;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    border-top: 4px solid #333;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
