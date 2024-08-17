@@ -33,6 +33,6 @@ O projeto contém os seguintes arquivos e diretórios:
 
 ## Licença
 
-Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE.md](license.md) para mais detalhes.
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE.md](LICENSE.md) para mais detalhes.
 
 
