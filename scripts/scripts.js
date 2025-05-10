@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   function fetchLivros() {
-      fetch('livros.json')
+      fetch('/data/livros.json')
           .then(response => response.json())
           .then(data => {
               livros = data;
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const totalPages = Math.ceil(totalItems / itemsPerPage);
       document.getElementById('prev').disabled = currentPage === 1;
       document.getElementById('next').disabled = currentPage === totalPages;
-      document.getElementById('page-info').textContent = `Página ${currentPage} de ${totalPages}`;
+      document.getElementById('page-info').textContent = `Pág. ${currentPage} de ${totalPages}`;
   }
 
 

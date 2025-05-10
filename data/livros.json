@@ -268,6 +268,10 @@
     "arquivo": "livros/Javascript - Cangaceiro JavaScript - Uma Aventura no Sert\u00e3o da Programacao.pdf"
   },
   {
+    "nome": "The Art of Software Testing - Glenford J. Myers, Corey Sandler, Tom Badgett",
+    "arquivo": "livros/The Art of Software Testing - Glenford J. Myers, Corey Sandler, Tom Badgett.pdf"
+  },
+  {
     "nome": "Node.js - Aplica\u00e7\u00f5es web real-tome com Node.js",
     "arquivo": "livros/Node.js - Aplica\u00e7\u00f5es web real-tome com Node.js.pdf"
   },
@@ -1208,8 +1212,8 @@
     "arquivo": "livros/LinuxNotesForProfessionals.pdf"
   },
   {
-    "nome": "Html5_e_css3_domine_a_web_do_futuro_fran (1)",
-    "arquivo": "livros/Html5_e_css3_domine_a_web_do_futuro_fran (1).pdf"
+    "nome": "Html5_e_css3_domine_a_web_do_futuro_fran",
+    "arquivo": "livros/Html5_e_css3_domine_a_web_do_futuro_fran.pdf"
   },
   {
     "nome": "Criando aplica\u00e7\u00f5es para o seu Windows Phone",
