@@ -1,38 +1,61 @@
 # Biblioteca de Programação Online
 
-Este projeto é uma plataforma para acessar e explorar uma coleção de livros de programação. O site foi criado por mim para fornecer de forma forma acessível o aprendizado.
+Este projeto é uma aplicação web que permite acessar, pesquisar e navegar por uma coleção de livros de programação. A ideia é democratizar o acesso ao conhecimento técnico, disponibilizando materiais em PDF de forma simples e organizada.
 
-## Visão Geral
+# Visão Geral
 
-O projeto consiste em um site que permite aos usuários buscar e navegar por uma lista de livros de programação. Os livros são exibidos em uma lista paginada e a busca é suportada para facilitar a localização de títulos específicos conforme o nome deles na biblioteca.
+A aplicação carrega automaticamente os livros disponíveis no diretório `livros/`, gera um arquivo `livros.json` com os metadados e exibe os livros em uma interface web paginada com busca em tempo real.
 
-## Estrutura do Projeto
+# Tecnologias Utilizadas
 
-O projeto contém os seguintes arquivos e diretórios:
+- **HTML5** – estrutura semântica da interface.
+- **CSS3** – estilização visual.
+- **JavaScript** – manipulação de DOM, paginação e busca dinâmica.
+- **Python 3** – script para geração automática do arquivo `livros.json`.
+- **JSON** – formato leve para armazenar os dados dos livros.
 
-- `index.html`: O arquivo HTML principal que define a estrutura da página.
-- `style.css`: O arquivo de estilo CSS que adiciona o design e a formatação ao site.
-- `scripts.js`: O arquivo JavaScript que gerencia a lógica de paginação, busca e carregamento dos livros.
-- `livros.json`: O arquivo JSON que contém os dados dos livros disponíveis.
-- `livros/`: Diretório contendo os arquivos PDF dos livros.
-- `generate_books_list.py`: script python utilizado para gerar e atualizar os livros. Ele lê os arquivos PDF no diretório livros/, extrai informações relevantes e salva essas informações em livros.json usando o comando: `python3 generate_books_list.py`
+# Como funciona a geração?
 
-## Funcionalidades
+Executando o script para gerar o `livros.json` com base nos PDFs presentes em `livros/`:
+```bash
+python3 scripts/generate_books_list.py
+```
 
-1. **Exibição de Livros**
-   - Os livros são carregados a partir do arquivo `livros.json`.
-   - Os livros são listados em uma lista com links para download.
+Esse script percorre todos os arquivos `.pdf` no diretório `livros/` e gera um JSON contendo o nome e o caminho de cada arquivo.
 
-2. **Busca de Livros**
-   - Um campo de busca permite filtrar livros por título.
-   - A busca é dinâmica e atualiza a lista de livros em tempo real.
+## Interface Web
+- A página `index.html` exibe os livros em uma lista paginada.
+- A busca filtra dinamicamente os títulos.
+- Cada item da lista é um link direto para o PDF correspondente.
 
-3. **Paginação**
-   - Livros são exibidos em páginas com 60 livros por página.
-   - A navegação entre páginas é possível usando os botões "Anterior" e "Próximo".
+# Funcionalidades
 
-## Licença
+- **Busca em tempo real** por título
+- **Paginação automática** (60 livros por página)
+- **Links diretos** para os arquivos em PDF
+- **Organização modular** do código e dados
 
-Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE.md](LICENSE.md) para mais detalhes.
+# Imagens
+
+<p align="center">
+  <img src="/assets/images/bibliotecadelivros.png" alt="Tela da biblioteca" width="500"/>
+</p>
+
+<p align="center">
+  <img src="/assets/images/bibliotecadelivros2.png" alt="Tela da biblioteca" width="500"/>
+</p>
+
+<p align="center">
+  <img src="/assets/images/bibliotecadelivrosmobile.png" alt="Tela da biblioteca" width="500"/>
+</p>
+
+<p align="center">
+  <img src="/assets/images/bibliotecadelivrosmobile1.png" alt="Tela da biblioteca" width="500"/>
+</p>
+
+
+# Licença
+
+Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE.md](LICENSE.md) para mais informações.
 
 
