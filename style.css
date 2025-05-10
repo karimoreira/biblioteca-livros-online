@@ -1,45 +1,62 @@
-body {
-    font-family: 'Georgia', serif;
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
     color: #333;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
-    background: #4a4a4a;
+    background: #212529;
     color: #fff;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
     text-align: center;
-    border-bottom: 4px solid #333;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2.5rem;
+    font-size: 2.7rem;
+    margin: 0 0 0.5rem 0;
 }
 
 header p {
     margin: 0;
     font-size: 1.2rem;
     font-style: italic;
+    color: #ccc;
 }
 
 main {
     padding: 2rem 0;
+    flex: 1;
 }
 
 .container {
-    width: 80%;
+    width: 90%;
     max-width: 1200px;
     margin: auto;
+    box-sizing: border-box;
 }
 
+
 section#livros {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+section#livros:hover {
+    transform: translateY(-3px);
 }
 
 h2 {
@@ -56,11 +73,18 @@ h2 {
 
 .search-bar input {
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 0.85rem 1rem;
+    border: none;
+    box-shadow: 0 0 0 1px #ced4da;
+    border-radius: 8px;
     font-size: 1rem;
     box-sizing: border-box;
+    transition: box-shadow 0.2s;
+}
+
+.search-bar input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #007bff;
 }
 
 ul#lista-livros {
@@ -70,55 +94,65 @@ ul#lista-livros {
 }
 
 ul#lista-livros li {
-    background: #fafafa;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    background: #f1f3f5;
+    border: none;
+    border-radius: 8px;
     margin-bottom: 1rem;
-    padding: 1rem;
+    padding: 1.2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
 }
 
 ul#lista-livros li:hover {
-    background: #e0e0e0;
+    background: #dee2e6;
+    transform: scale(1.01);
 }
 
 a {
     text-decoration: none;
-    color: #007bff;
+    color: #0d6efd;
     font-weight: bold;
 }
 
 a:hover {
+    color: #084298;
     text-decoration: underline;
 }
 
 .pagination {
     margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
     text-align: center;
 }
 
 .pagination button {
-    background: #007bff;
+    background-color:#212529;
     color: #fff;
     border: none;
-    border-radius: 5px;
-    padding: 0.75rem 1.5rem;
+    border-radius: 16px;
+    padding: 0.7rem 1.4rem;
     font-size: 1rem;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
+    min-width: 100px;
+    flex-shrink: 0;
     margin: 0 0.5rem;
 }
 
-.pagination button:disabled {
-    background: #d0d0d0;
-    cursor: not-allowed;
+.pagination button:hover:not(:disabled) {
+    background-color: #56687c;
+    transform: scale(1.05);
 }
 
-.pagination button:hover:not(:disabled) {
-    background: #0056b3;
+.pagination button:disabled {
+    background-color: #adb5bd;
+    cursor: not-allowed;
 }
 
 .pagination #page-info {
@@ -127,78 +161,76 @@ a:hover {
 }
 
 footer {
-    background: #4a4a4a;
-    color: #fff;
-    padding: 1rem 0;
+    background-color: #212529;
+    color: #adb5bd;
+    padding: 2rem 0;
     text-align: center;
-    border-top: 4px solid #333;
+    font-size: 0.95rem;
+    border-top: 4px solid #343a40;
 }
 
 footer p {
     margin: 0;
-    font-size: 0.9rem;
+}
+
+@media (max-width: 620px) {
+    .pagination {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .pagination button {
+        padding: 0.4rem 0.9rem;
+        font-size: 0.85rem;
+    }
+
+    .pagination #page-info {
+        font-size: 0.85rem;
+        margin: 0 0.5rem;
+        flex-basis: 100%;
+        text-align: center;
+    }
 }
 
 
 @media (max-width: 580px) {
-    .container {
-        width: 95%; 
-        padding: 0 1rem; 
+     .container {
+        width: 100%;
+        padding: 0 1rem;
     }
-
     header h1 {
-        font-size: 1.8rem; 
+        font-size: 2rem;
     }
 
     header p {
-        font-size: 1rem; 
-    }
-
-    main {
-        padding: 1rem 0; 
+        font-size: 1rem;
     }
 
     section#livros {
-        padding: 1rem; 
+        padding: 1.5rem;
     }
 
     h2 {
-        font-size: 1.5rem; 
+        font-size: 1.6rem;
     }
 
     .search-bar input {
-        padding: 0.5rem; 
-        font-size: 0.9rem; 
+        font-size: 0.95rem;
     }
 
     ul#lista-livros li {
-        flex-direction: column; 
-        align-items: flex-start; 
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .pagination {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 1rem; 
-    }
-
-    .pagination button {
-        padding: 0.4rem 0.8rem; 
-        font-size: 0.8rem; 
-        margin: 0.2rem;
-    }
-
-    .pagination #page-info {
-        font-size: 0.8rem; 
-        margin: 0.4rem 0; 
-    }
 }
-
 
 @media (max-width: 348px) {
     header h1 {
-        font-size: 1.5rem; 
+        font-size: 1.6rem;
     }
 
     header p {
@@ -206,21 +238,11 @@ footer p {
     }
 
     h2 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 
     .search-bar input {
-        font-size: 0.8rem; 
+        font-size: 0.85rem;
     }
 
-    .pagination button {
-        padding: 0.3rem 0.6rem; 
-        font-size: 0.7rem; 
-        margin: 0.1rem; 
-    }
-
-    .pagination #page-info {
-        font-size: 0.7rem;
-        margin: 0.3rem 0; 
-    }
 }
