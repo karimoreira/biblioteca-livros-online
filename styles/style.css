@@ -33,16 +33,14 @@ line-height: 1.6;
 header {
 background: rgba(15, 23, 42, 0.95);
 border-bottom: 1px solid var(--border-color);
-padding: 3rem 1rem;
+padding: 30px 16px;
 text-align: center;
 backdrop-filter: blur(10px);
-/* position: sticky; */
-/* top: 0; */
 z-index: 100;
 }
 
 header h1 {
-font-size: 2.5rem;
+font-size: 30px;
 margin: 0 0 0.5rem 0;
 background: rgba(255, 255, 255, 0.911);
 -webkit-background-clip: text;
