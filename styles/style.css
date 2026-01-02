@@ -1,11 +1,16 @@
 :root {
-  --bg-color: #e2e8f0; 
-  --card-bg: #ebe8e8d5;
-  --text-primary: #090f1d;
-  --text-secondary: #303a47;
-  --accent-color: #2563eb; 
-  --accent-hover: #1d4ed8;
-  --border-color: #cbd5e1;
+  --bg-color: #0a0a0a;
+  --card-bg: #161b22;
+  --text-primary: #f0f6fc;
+  --text-secondary: #8b949e;
+  --accent-color: #00d2ff;
+  --accent-hover: #33e0ff;
+  --accent-secondary: #ff80bf;
+  --color-primary: var(--accent-color);
+  --color-secondary: var(--accent-secondary);
+  --border-color: #30363d;
+  --font-main: 'Inter', sans-serif;
+  --font-code: 'Fira Code', monospace;
 }
 
 html, body {
@@ -23,7 +28,7 @@ html, body {
 }
 
 body {
-  font-family: 'Inter', 'Segoe UI', sans-serif; 
+  font-family: var(--font-main);
   background-color: var(--bg-color);
   color: var(--text-primary);
   display: flex;
@@ -33,31 +38,49 @@ body {
 
 header {
   border-bottom: 1px solid var(--border-color);
-  padding: 30px 16px;
-  text-align: center;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  position: sticky;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
+  padding: 10px 20px;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.header-text {
+  text-align: left;
 }
 
 header h1 {
-  font-size: 30px;
-  margin: 0 0 0.5rem 0;
-  background: #000;
+  font-size: 1.4rem;
+  margin: 0 0 0.1rem 0;
+  background: linear-gradient(to right,var(--color-primary),var(--color-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
 header p {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
+  font-family: var(--font-code);
 }
 
 main {
-  padding: 32px 0;
+  padding: 100px 0 40px 0;
   flex: 1;
 }
 
@@ -67,180 +90,203 @@ main {
   margin: auto;
 }
 
-section#livros {
-  background: transparent; 
-  box-shadow: none;
-  padding: 0;
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .section-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: var(--text-primary);
-  border-bottom: none;
-  margin-bottom: 1.5rem;
+  margin: 0;
   position: relative;
-  border-left: 6px solid #000;
-  padding-left: 16px;
+  display: inline-block;
 }
 
 h2::after {
   content: '';
   display: block;
-  width: 100%;      
-  height: 2px;      
-  background-color: var(--border-color); 
-  margin-top: 10px;  
+  width: 40px;
+  height: 4px;
+  background-color: var(--text-primary);
+  margin-top: 8px;
   border-radius: 2px;
-  opacity: 0.5;      
 }
 
+
 .search-bar {
-  margin-bottom: 2rem;
+  position: relative;
+  width: 100%;
+  max-width: 400px;
 }
 
 .search-bar input {
   width: 100%;
-  padding: 1rem 1.5rem;
+  padding: 8px 16px 8px 40px;
   background-color: var(--card-bg);
-  border: 2px solid var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
   color: var(--text-primary);
-  border-radius: 12px;
-  font-size: 1.1rem;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 
 .search-bar input:focus {
   outline: none;
- 
-  box-shadow: 0 0 0 4px rgba(15, 16, 17, 0.15); /* Ring de foco azul */
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.1);
 }
 
-.search-bar input::placeholder {
-  color: #94a3b8;
+.search-bar svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  pointer-events: none;
+  width: 18px;
+  height: 18px;
 }
 
-ul#lista-livros {
-  list-style-type: none;
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
-  gap: 1.5rem;
 }
 
-ul#lista-livros li {
-  background: var(--card-bg);
-  border: 1px solid transparent; 
+
+.book-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  transition: all 0.25s ease;
-  height: 100%; 
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  justify-content: space-between;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
 }
 
-ul#lista-livros li:hover {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+.book-card:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
-ul#lista-livros li a {
-  text-decoration: none;
-  color: var(--text-primary);
-  font-weight: 700;
-  font-size: 1.15rem;
+.card-content {
+  margin-bottom: 20px;
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 210, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: var(--accent-color);
+}
+
+.book-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
   line-height: 1.4;
-  display: block; 
+  color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
+
+.card-actions {
+  margin-top: auto;
+}
+
+.btn-read {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.btn-read:hover {
+  background-color: var(--accent-color);
+  color: #000;
+}
+
 
 .pagination {
-  margin-top: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 16px;
+  margin-top: 60px;
 }
 
 .pagination button {
   background-color: var(--card-bg);
-  color: var(--text-primary);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 0.8rem 1.5rem;
-  font-size: 0.95rem;
-  font-weight: 600;
+  color: var(--text-primary);
+  padding: 8px 16px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  font-family: var(--font-main);
+  transition: all 0.2s ease;
 }
 
 .pagination button:hover:not(:disabled) {
-  background-color: #000;
-  color: #fff;
-  transform: translateY(-1px);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
 }
 
 .pagination button:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
-  background-color: #f1f5f9;
-  color: #94a3b8;
 }
 
-.pagination #page-info {
-  font-family: monospace;
+#page-info {
   color: var(--text-secondary);
-  font-size: 1rem;
-  background: rgba(255,255,255,0.5);
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  border: 1px solid var(--border-color);
+  font-family: var(--font-code);
+  font-size: 0.9rem;
 }
+
 
 footer {
-  background-color: var(--bg-color); 
-  color: var(--text-secondary);
-  padding: 2rem 0;
-  text-align: center;
-  font-size: 0.9rem;
   border-top: 1px solid var(--border-color);
+  padding: 40px 0;
   margin-top: auto;
+  text-align: center;
+  color: var(--text-secondary);
 }
 
-@media (max-width: 768px) {
-
-  .container {
-      width: 94%;
-      padding: 0 0.5rem;
-  }
-
-  header {
-      padding: 2rem 1rem;
-  }
-
-  header h1 {
-      font-size: 24px;
-  }
-
-  ul#lista-livros {
-      grid-template-columns: minmax(0, 1fr);
-      width: 100%;
-    }
-
-  ul#lista-livros li {
-      word-wrap: break-word; 
-      overflow-wrap: break-word;
-      width: 100%;
-  }
-
-  .pagination {
-      gap: 0.5rem;
-      flex-wrap: wrap;
-  }
-
-  .pagination button {
-      padding: 0.6rem 0.8rem;
-      flex: 1;
-  }
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
 }
+

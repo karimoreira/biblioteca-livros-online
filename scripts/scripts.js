@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const itemsPerPage = 60; 
+  const itemsPerPage = 12; 
   let currentPage = 1;
   let livros = [];
 
@@ -29,13 +29,38 @@ document.addEventListener('DOMContentLoaded', function() {
       listaLivros.innerHTML = '';
 
       paginatedLivros.forEach(livro => {
-          const li = document.createElement('li');
-          const a = document.createElement('a');
-          a.href = livro.arquivo;
-          a.textContent = livro.nome;
-          a.target = '_blank';
-          li.appendChild(a);
-          listaLivros.appendChild(li);
+          const card = document.createElement('div');
+          card.className = 'book-card';
+
+          const cardContent = document.createElement('div');
+          cardContent.className = 'card-content';
+
+          const iconDiv = document.createElement('div');
+          iconDiv.className = 'card-icon';
+          iconDiv.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>`;
+          
+          const title = document.createElement('h3');
+          title.textContent = livro.nome;
+          title.className = 'book-title';
+
+          cardContent.appendChild(iconDiv);
+          cardContent.appendChild(title);
+
+          const cardActions = document.createElement('div');
+          cardActions.className = 'card-actions';
+
+          const link = document.createElement('a');
+          link.href = livro.arquivo;
+          link.textContent = 'Ler Livro';
+          link.className = 'btn-read';
+          link.target = '_blank';
+
+          cardActions.appendChild(link);
+
+          card.appendChild(cardContent);
+          card.appendChild(cardActions);
+          
+          listaLivros.appendChild(card);
       });
 
       updatePagination(filteredLivros.length);
