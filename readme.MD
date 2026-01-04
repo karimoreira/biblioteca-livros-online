@@ -11,14 +11,14 @@ A aplicação carrega automaticamente os livros disponíveis no diretório `livr
 - **HTML5** – estrutura semântica da interface.
 - **CSS3** – estilização visual.
 - **JavaScript** – manipulação de DOM, paginação e busca dinâmica.
-- **Python 3** – script para geração automática do arquivo `livros.json`.
+- **Node.js** – script para geração automática do arquivo `livros.json`.
 - **JSON** – formato leve para armazenar os dados dos livros.
 
 # Como funciona a geração?
 
 Executando o script para gerar o `livros.json` com base nos PDFs presentes em `livros/`:
 ```bash
-python3 scripts/generate_books_list.py
+node scripts/generate_books_list.js
 ```
 
 Esse script percorre todos os arquivos `.pdf` no diretório `livros/` e gera um JSON contendo o nome e o caminho de cada arquivo.
