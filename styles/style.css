@@ -290,3 +290,9 @@ footer p {
   font-size: 0.9rem;
 }
 
+@media (max-width: 908px) {
+  main {
+    padding-top: 220px;
+  }
+}
+
