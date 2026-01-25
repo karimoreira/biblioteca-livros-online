@@ -38,19 +38,7 @@ Esse script percorre todos os arquivos `.pdf` no diretório `livros/` e gera um 
 # Imagens
 
 <p align="center">
-  <img src="/assets/images/bibliotecadelivros.png" alt="Tela da biblioteca" width="500"/>
-</p>
-
-<p align="center">
-  <img src="/assets/images/bibliotecadelivros2.png" alt="Tela da biblioteca" width="500"/>
-</p>
-
-<p align="center">
-  <img src="/assets/images/bibliotecadelivrosmobile.png" alt="Tela da biblioteca" width="500"/>
-</p>
-
-<p align="center">
-  <img src="/assets/images/bibliotecadelivrosmobile1.png" alt="Tela da biblioteca" width="500"/>
+  <img src="/assets/images/bibliotecaatualizada.png" alt="Tela da biblioteca" width="500"/>
 </p>
 
 
