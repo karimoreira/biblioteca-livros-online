@@ -39,14 +39,8 @@ body {
 header {
   border-bottom: 1px solid var(--border-color);
   padding: 10px 20px;
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  position: fixed;
-  top: 0;
-  left: 0;
+  background: var(--bg-color); 
   width: 100%;
-  z-index: 100;
 }
 
 .header-container {
@@ -80,7 +74,7 @@ header p {
 }
 
 main {
-  padding: 100px 0 40px 0;
+  padding: 40px 0 40px 0;
   flex: 1;
 }
 
@@ -290,9 +284,4 @@ footer p {
   font-size: 0.9rem;
 }
 
-@media (max-width: 908px) {
-  main {
-    padding-top: 220px;
-  }
-}
 
