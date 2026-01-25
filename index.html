@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -7,45 +7,39 @@
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/assets/favicon/Book-icon.ico" type="image/x-icon">
     <script src="/scripts/scripts.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="container header-container">
-            <div class="header-text">
-                <h1>Biblioteca de Programação Online</h1>
-                <p>Encontre os melhores livros de programação aqui</p>
-            </div>
-            <div class="search-bar">
-                <input type="text" id="search" placeholder="Buscar livro..." />
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            </div>
-        </div>
-    </header>
-    <main>
-        <div class="container">
-            <section id="livros">
-                <div class="section-header">
-                    <h2>Acervo</h2>
+    <div class="dashboard-container">
+        <main class="main-content">
+            <header>
+                <div class="search-bar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="search" placeholder="Buscar por livro..." />
                 </div>
+                <button class="search-btn">Buscar</button>
+            </header>
+
+            <section class="content-section">
+                <div class="section-header">
+                    <h2>Livros de programação</h2>
+                </div>
+
                 <div id="lista-livros" class="book-grid">
                 </div>
-                <div class="pagination">
-                    <button id="prev" disabled>Anterior</button>
+                
+                <div class="pagination-container">
                     <span id="page-info">Página 1</span>
-                    <button id="next">Próxima</button>
+                    <div class="pag-arrows">
+                        <button id="prev" class="arrow-btn">&lt;</button>
+                        <button id="next" class="arrow-btn">&gt;</button>
+                    </div>
                 </div>
             </section>
-        </div>
-    </main>
-    <footer>
-        <div class="container">
-            <p>&copy; Biblioteca de Programação Online
-               <br>Aprender é direito de todos, livro não é privilégio.
-               <br>Desenvolvido por Kari Atílio Moreira</p>
-        </div>
-    </footer>
+
+        </main>
+    </div>
 </body>
 </html>

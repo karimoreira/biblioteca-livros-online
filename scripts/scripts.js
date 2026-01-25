@@ -75,7 +75,10 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 
-  document.getElementById('search').addEventListener('input', updateList);
+  document.getElementById('search').addEventListener('input', () => {
+    currentPage = 1;
+    updateList();
+  });
 
 
   document.getElementById('prev').addEventListener('click', () => {
@@ -93,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
           updateList();
       }
   });
-
 
   fetchLivros();
 });
