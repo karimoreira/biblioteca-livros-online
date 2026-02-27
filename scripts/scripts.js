@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const itemsPerPage = 12; 
+  const itemsPerPage = 15; 
   let currentPage = 1;
   let livros = [];
 
